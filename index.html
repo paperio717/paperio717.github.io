@@ -1,1 +1,336 @@
-hello world
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paper io Un*locked * Unblocked Games </title>
+
+  <!-- Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'edge-bg': '#0b0a0f',
+            'edge-surface': '#14121a',
+            'edge-card': '#1c1a26',
+            'edge-border': '#2e2a3d',
+            'edge-muted': '#9a92b0',
+            'edge-accent': '#06b6d4', /* Changed to a cool cyan/teal for gaming vibe */
+            'edge-glow': '#22d3ee',
+            'edge-punch': '#f43f5e', /* Rose/Red for danger/elimination */
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Critical performance styles -->
+  <style>
+    /* Base reveal with hardware acceleration */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px) translateZ(0);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
+    }
+
+    /* Staggered children for smoother group reveals */
+    .reveal-stagger > * {
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+    }
+    .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+    .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+
+    /* Interactive cards - specific transitions for performance */
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px) translateZ(0);
+    }
+
+    /* Glow hover - optimized */
+    .glow-hover {
+      transition: box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+
+    /* Smooth progress bar */
+    #myBar {
+      transition: width 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    
+    /* Iframe wrapper for perfect aspect ratio */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-edge-bg font-sans text-edge-muted antialiased selection:bg-edge-accent/30 selection:text-white">
+
+  <!-- Reading Progress -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-edge-surface z-50">
+    <div id="myBar" class="h-full bg-gradient-to-r from-edge-accent to-edge-punch w-0 shadow-[0_0_20px_#06b6d4]"></div>
+  </div>
+
+  <!-- Main container -->
+  <main class="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-20">
+
+    <!-- Header -->
+    <header class="reveal border-b border-edge-border/60 pb-8 mb-12 text-center">
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-[0.15em] uppercase text-edge-accent/70 mb-6">
+        <span class="bg-edge-accent/10 px-4 py-1.5 rounded-full border border-edge-accent/20">Game Guide</span>
+        <span class="w-px h-4 bg-edge-border"></span>
+        <span class="flex items-center gap-1.5 text-edge-muted/60"><i class="ph-fill ph-game-controller"></i> Strategy</span>
+        <span class="w-px h-4 bg-edge-border"></span>
+        <span class="text-edge-muted/40">#Paper.io</span>
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mx-auto max-w-3xl">
+        Mastering Paper.io
+      </h1>
+      <p class="text-xl md:text-2xl font-light text-edge-muted/80 max-w-2xl mx-auto mt-6 leading-relaxed">
+        Everything you need to know about expanding your territory, surviving enemies, and dominating the map.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-5 text-sm text-edge-muted/50 mt-8 pt-6 border-t border-edge-border/40">
+        <span><span class="text-white/70 font-semibold">Gamer's Archive</span> · Today</span>
+        <span class="flex items-center gap-2">
+          <i class="ph-fill ph-tag text-edge-accent/40"></i>
+          <span class="bg-edge-border/30 px-3 py-0.5 rounded-full text-[0.65rem] font-bold tracking-wider uppercase text-edge-muted/60">tutorial</span>
+          <span class="bg-edge-border/30 px-3 py-0.5 rounded-full text-[0.65rem] font-bold tracking-wider uppercase text-edge-muted/60">gameplay</span>
+        </span>
+      </div>
+    </header>
+
+    <!-- GAME IFRAME SECTION (CENTERED) -->
+    <div class="reveal relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)] border-2 border-edge-accent/30 mb-16 hover:border-edge-accent/60 transition-colors duration-500 group bg-edge-surface">
+      
+      <!-- Decorative top bar for the iframe -->
+      <div class="w-full h-8 bg-edge-card border-b border-edge-border flex items-center px-4 gap-2">
+        <div class="w-3 h-3 rounded-full bg-edge-punch/80"></div>
+        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+        <div class="mx-auto text-[0.65rem] font-bold tracking-[0.2em] uppercase text-edge-muted/50">Play Now</div>
+      </div>
+      
+      <!-- Iframe container -->
+      <div class="iframe-container bg-black">
+        <!-- Using standard paper-io link. If it fails to load due to iframe policies on some networks, the container remains intact -->
+        <iframe src="https://paper-io.com/" frameborder="0" allowfullscreen class="group-hover:opacity-100 transition-opacity duration-500"></iframe>
+      </div>
+      
+      <!-- Glowing effect behind -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-edge-accent to-edge-punch blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 -z-10"></div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="reveal bg-edge-surface/60 backdrop-blur-sm border border-edge-border/50 rounded-2xl p-6 md:p-8 mb-14 shadow-xl shadow-black/20">
+      <div class="flex items-center gap-2 font-sans text-[0.6rem] font-black tracking-[0.2em] uppercase text-edge-accent/60 mb-4">
+        <i class="ph-bold ph-list-bullets text-base"></i> Contents
+      </div>
+      <ol class="grid grid-cols-1 md:grid-cols-2 gap-4 list-decimal pl-5 text-sm font-medium text-edge-muted/70">
+        <li><a href="#section-1" class="text-white/70 hover:text-edge-accent transition-colors duration-200">The Basics: Launching the Game</a></li>
+        <li><a href="#section-2" class="text-white/70 hover:text-edge-accent transition-colors duration-200">How to Expand Your Territory</a></li>
+        <li><a href="#section-3" class="text-white/70 hover:text-edge-accent transition-colors duration-200">The Ultimate Risk: Staying Alive</a></li>
+        <li><a href="#section-4" class="text-white/70 hover:text-edge-accent transition-colors duration-200">Stealing Territory & Eliminating Opponents</a></li>
+      </ol>
+    </div>
+
+    <!-- Lede -->
+    <div class="lede reveal bg-edge-surface/40 border-l-4 border-edge-accent p-8 md:p-10 rounded-r-2xl mb-14">
+      <p class="font-serif text-xl md:text-2xl font-bold italic text-white/90 leading-relaxed">
+        “Your goal is to expand your area. If you keep expanding until you cover the entire map, you win the game. Of course, it’s not that easy—covering the whole map isn't a simple task.”
+      </p>
+    </div>
+
+    <!-- Body Content -->
+    <div class="space-y-6 text-base md:text-lg text-edge-muted/90 leading-relaxed">
+
+      <p class="reveal">
+        So, friends, how are you all? I hope you're doing great. In today's post, I’m going to talk about the game <strong>Paper.io</strong>. I’ll explain exactly how to play it in full detail. Let’s get started!
+      </p>
+
+      <div class="reveal flex justify-center gap-3 my-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+      </div>
+
+      <!-- Section 1 -->
+      <h2 id="section-1" class="reveal font-serif text-3xl md:text-4xl font-black text-white mt-12 mb-4 scroll-mt-24 tracking-tight">
+        The Basics: Launching the Game
+      </h2>
+      <p class="reveal">
+        Let’s launch the game, and I’ll show you the ropes. When you first enter the game, you’ll see an interface where you start with a small patch of territory on the map. 
+      </p>
+      <p class="reveal mt-4">
+        You can track how much of the total map you’ve covered by looking at the bar at the top of the screen; right now, it shows 1%, meaning I’ve captured about 1% of the total area. Also, keep in mind that you aren't playing alone; there are other players on the map too. You can see how much territory they’ve captured on the right side of the screen, where their names or avatars and their coverage percentages are displayed.
+      </p>
+
+      <!-- Section 2 -->
+      <h2 id="section-2" class="reveal font-serif text-3xl md:text-4xl font-black text-white mt-16 mb-4 scroll-mt-24 tracking-tight">
+        How to Expand Your Territory
+      </h2>
+      <p class="reveal">
+        Now, let’s get to the main point: how do you actually expand your territory? To do this, you need to move out of your current area and then loop back into it. 
+      </p>
+
+      <!-- Expansion Process Cards -->
+      <div class="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-5 my-10">
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-cyan-900/30 to-cyan-700/10 border border-cyan-500/30 text-center shadow-[0_0_30px_rgba(6,182,212,0.1)] hover-lift glow-hover hover:border-cyan-400/60 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]">
+          <div class="w-10 h-10 mx-auto bg-cyan-500/20 rounded-full flex items-center justify-center mb-3"><i class="ph-bold ph-sign-out text-cyan-300 text-xl"></i></div>
+          <span class="font-sans text-[0.6rem] font-black tracking-[0.2em] uppercase text-cyan-300">Step 1</span>
+          <p class="text-sm text-edge-muted/80 mt-2 font-medium">Step outside your currently owned territory.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-900/30 to-indigo-700/10 border border-indigo-500/30 text-center shadow-[0_0_30px_rgba(99,102,241,0.1)] hover-lift glow-hover hover:border-indigo-400/60 hover:shadow-[0_0_40px_rgba(99,102,241,0.2)]">
+          <div class="w-10 h-10 mx-auto bg-indigo-500/20 rounded-full flex items-center justify-center mb-3"><i class="ph-bold ph-pencil-line text-indigo-300 text-xl"></i></div>
+          <span class="font-sans text-[0.6rem] font-black tracking-[0.2em] uppercase text-indigo-300">Step 2</span>
+          <p class="text-sm text-edge-muted/80 mt-2 font-medium">Move around to draw a line enclosing new space.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-900/30 to-emerald-700/10 border border-emerald-400/30 text-center shadow-[0_0_30px_rgba(52,211,153,0.1)] hover-lift glow-hover hover:border-emerald-400/60 hover:shadow-[0_0_40px_rgba(52,211,153,0.2)]">
+          <div class="w-10 h-10 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center mb-3"><i class="ph-bold ph-sign-in text-emerald-300 text-xl"></i></div>
+          <span class="font-sans text-[0.6rem] font-black tracking-[0.2em] uppercase text-emerald-300">Step 3</span>
+          <p class="text-sm text-edge-muted/80 mt-2 font-medium">Re-enter your territory to claim the enclosed area.</p>
+        </div>
+      </div>
+
+      <p class="reveal">
+        Once you return, a line will be created here; any area enclosed by that line becomes part of your territory—meaning your territory expands. Let me demonstrate: I’m currently inside my territory. I step out, move around a bit, and as soon as I re-enter my territory, the enclosed area becomes mine. That’s how you can expand your territory.
+      </p>
+
+      <div class="reveal flex justify-center gap-3 my-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-edge-border"></span>
+      </div>
+
+      <!-- Section 3 -->
+      <h2 id="section-3" class="reveal font-serif text-3xl md:text-4xl font-black text-white mt-12 mb-4 scroll-mt-24 tracking-tight">
+        The Ultimate Risk: Staying Alive
+      </h2>
+      <p class="reveal">
+        However, there’s a catch. You need to understand this well, because going far allows you to capture a large area at once, but it also heavily increases your risk.
+      </p>
+
+      <!-- Info Box - Danger -->
+      <div class="reveal relative bg-edge-punch/10 backdrop-blur-sm border border-edge-punch/20 rounded-2xl p-8 my-10 shadow-[0_0_30px_rgba(244,63,94,0.05)] hover:shadow-[0_0_40px_rgba(244,63,94,0.08)] transition-shadow duration-500">
+        <div class="absolute -top-3 left-6 font-sans text-[0.55rem] font-black tracking-[0.2em] uppercase bg-edge-punch/20 text-edge-punch px-4 py-1 rounded-full border border-edge-punch/30 flex items-center gap-1"><i class="ph-bold ph-warning text-sm"></i> Warning</div>
+        <p class="text-sm md:text-base text-edge-muted/80 leading-relaxed mt-1">If you step outside and—before you can re-enter your territory—another player crosses the line you are drawing, <strong>you will die</strong>, and your game will end. So, you need to be careful not to venture too far away.</p>
+      </div>
+
+      <!-- Section 4 -->
+      <h2 id="section-4" class="reveal font-serif text-3xl md:text-4xl font-black text-white mt-16 mb-4 scroll-mt-24 tracking-tight">
+        Stealing Territory & Eliminating Opponents
+      </h2>
+      <p class="reveal">
+        Similarly, if an opponent steps out of their territory and you cross their line before they can get back in, they will die, and their territory will be added to yours, significantly increasing your occupied area. 
+      </p>
+      
+      <!-- Pull Quote -->
+      <div class="reveal relative text-center py-12 px-6 my-10">
+        <span class="absolute top-0 left-1/2 -translate-x-1/2 text-8xl font-serif text-edge-accent/10 leading-none">“</span>
+        <blockquote class="font-serif text-2xl md:text-3xl font-bold text-edge-accent/90 relative z-10 leading-snug tracking-tight">
+          “Watch this: I step out, but before I can re-enter, an opponent crosses my line, and I die. That’s how it happens.”
+        </blockquote>
+      </div>
+
+      <p class="reveal">
+        So, you have to play carefully. Let’s jump back into the game, and I’ll show you a kill. As you can see, I’ve re-entered the game... and look, I can see an opponent right here; he has just stepped out of his house. Let's move in and cross his path—there, I've crossed it. With that, the house and territory that belonged to him are now mine.
+      </p>
+
+      <!-- Info Box - Success -->
+      <div class="reveal relative bg-emerald-900/10 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-8 my-10 shadow-[0_0_30px_rgba(52,211,153,0.05)] hover:shadow-[0_0_40px_rgba(52,211,153,0.08)] transition-shadow duration-500">
+        <div class="absolute -top-3 left-6 font-sans text-[0.55rem] font-black tracking-[0.2em] uppercase bg-emerald-500/20 text-emerald-300/90 px-4 py-1 rounded-full border border-emerald-500/20 flex items-center gap-1"><i class="ph-bold ph-crosshair"></i> Pro Tip</div>
+        <p class="text-sm md:text-base text-edge-muted/80 leading-relaxed mt-1">There is a way to claim an opponent's territory without actually killing them. To do this, you need to step out of your own area and move slightly into theirs. But keep in mind: another player tried to take my house, but he didn't notice where I was. Had he seen me, he wouldn't have come.</p>
+      </div>
+
+    </div>
+
+    <!-- Conclusion -->
+    <div class="reveal border-t border-edge-border/60 mt-14 pt-10">
+      <p class="font-serif text-xl md:text-2xl font-bold text-white/80 mb-6 leading-relaxed">
+        That’s how you can expand your own territory: by eliminating opponents and seizing the space they held. You have to learn how to take out others; it’s the only way to win the game. 
+      </p>
+      <p class="font-serif text-xl md:text-2xl font-bold text-white/80 mb-6 leading-relaxed">
+        If you don't learn this, you won't succeed, because the goal is to capture 100% of the map's territory. You only win once you've covered the entire area!
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal bg-gradient-to-br from-edge-surface to-edge-card border border-edge-border/80 rounded-3xl p-8 md:p-12 mt-12 text-center shadow-[0_0_60px_rgba(6,182,212,0.05)] hover:shadow-[0_0_80px_rgba(6,182,212,0.08)] transition-shadow duration-700">
+      <p class="font-serif text-xl md:text-2xl font-bold text-white/90 mb-6 leading-relaxed">Ready to dominate the map and capture 100%?</p>
+      <button onclick="document.querySelector('.iframe-container').scrollIntoView({behavior: 'smooth'})" class="inline-flex items-center gap-2 bg-edge-accent/20 hover:bg-edge-accent/30 text-white font-sans text-sm md:text-base font-bold px-8 py-3.5 rounded-full border border-edge-accent/40 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] active:scale-95">
+        Scroll up & Play Now <i class="ph-bold ph-arrow-up text-base"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <script>
+    // 1. Intersection Observer for buttery smooth reveals (GPU accelerated)
+    document.addEventListener('DOMContentLoaded', function() {
+      const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Unobserve after reveal to reduce load
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px' // Triggers slightly before element enters viewport
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    });
+
+    // 2. Progress Bar - smooth
+    function updateProgressBar() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+    
+    // Use passive listener for better scroll performance
+    window.addEventListener("scroll", updateProgressBar, { passive: true });
+  </script>
+</body>
+</html>
