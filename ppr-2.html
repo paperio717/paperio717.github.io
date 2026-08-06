@@ -1,1 +1,455 @@
-tta
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paper.io Unblocked 🟨 - Play Online for Free</title>
+    <meta name="description" content="Play Paper.io unblocked online for free! Conquer territory, defeat opponents, and become the king of the map in this fun multiplayer game.">
+    <meta name="keywords" content="paper.io unblocked, paper io, paper io 2 unblocked, play paper.io online, unblocked games, multiplayer paper game, paper.io unblocked github">
+    
+    <!-- Open Graph / Social (Optimized for your URL) -->
+    <meta property="og:title" content="Paper.io Unblocked 👑 Play Online">
+    <meta property="og:description" content="Draw your territory and conquer the map in Paper.io Unblocked. Play instantly in your browser!">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-2.html">
+    <meta property="og:type" content="website">
+    
+    
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Paper.io Unblocked",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "url": "https://paperio717.github.io/ppr-2.html",
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=630&fit=crop&q=80",
+      "description": "A popular multiplayer IO game where players draw boxes to capture territory. Play the unblocked version directly in your browser.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "125"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Paper.io Yellow Theme Variables */
+            --primary: #FFD700;       /* Bright Yellow */
+            --primary-hover: #FACC15; /* Slightly darker yellow */
+            --bg: #FEF9C3;            /* Very light yellow background */
+            --text: #1C1917;          /* Dark stone color for text */
+            --border: #F59E0B;        /* Amber border */
+            --card-bg: #FFFFFF;       /* White */
+            --overlay-bg: rgba(254, 249, 195, 0.95); 
+            --accent: #E11D48;        /* Rose Red for contrast/alerts */
+            --accent-hover: #BE123C;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(#FDE047 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 0 var(--border);
+        }
+
+        .logo {
+            font-weight: 900;
+            color: var(--text);
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-wrapper {
+            background: #000;
+            border-radius: 16px;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 800px; 
+            margin: 0 auto;
+            border: 6px solid var(--card-bg);
+            position: relative;
+            box-shadow: 0px 15px 30px rgba(245, 158, 11, 0.3);
+            overflow: hidden;
+        }
+
+        .game-wrapper:fullscreen {
+            border: none;
+            border-radius: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            background-color: #111;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--overlay-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .btn-play {
+            background: var(--primary);
+            color: var(--text);
+            border: 3px solid var(--text);
+            padding: 18px 50px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 12px;
+            box-shadow: 0 6px 0 var(--text);
+            transition: all 0.1s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-play:hover {
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 var(--text);
+            background: var(--primary-hover);
+        }
+        
+        .btn-play:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 var(--text);
+        }
+
+        .btn-fullscreen {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: var(--card-bg);
+            border: 2px solid var(--text);
+            color: var(--text);
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 0 var(--text);
+        }
+
+        .btn-fullscreen:hover {
+            background: var(--primary);
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--text);
+        }
+        
+        .btn-fullscreen:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 var(--text);
+        }
+
+        .btn-fullscreen svg {
+            fill: currentColor;
+            width: 24px;
+            height: 24px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px auto;
+            max-width: 800px;
+            gap: 15px;
+            background: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .game-info-tag { 
+            font-weight: 900; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            color: var(--text); 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-box { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        
+        .server-alert {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--accent);
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 
+            0%, 100% { opacity: 0.6; } 
+            50% { opacity: 1; } 
+        }
+
+        .server-select {
+            padding: 10px 15px;
+            border: 2px solid var(--text);
+            border-radius: 8px;
+            background: var(--primary);
+            font-weight: bold;
+            color: var(--text);
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 3px 0 var(--text);
+            transition: all 0.1s;
+        }
+        
+        .server-select:hover {
+            background: var(--primary-hover);
+        }
+
+        .seo-content {
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 1rem;
+            color: #444;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            line-height: 1.8;
+        }
+
+        .seo-content h2 {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hidden { display: none !important; }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .logo { font-size: 1.6rem; }
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+                text-align: center;
+            }
+            .server-box {
+                flex-direction: column;
+                width: 100%;
+            }
+            .server-select { width: 100%; }
+            .btn-play { padding: 15px 30px; font-size: 1.1rem; width: 100%; justify-content: center; }
+            .server-alert { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="logo">👑 Paper.io Unblocked 🟨</h1>
+    </header>
+
+    <main>
+        <!-- Game Container -->
+        <div class="game-wrapper" id="gameWrapper">
+            <iframe id="gameFrame" src="about:blank" title="Paper.io Unblocked Game Frame" allowfullscreen></iframe>
+            
+            <div id="overlay" class="overlay">
+                <div id="status" style="margin-bottom: 20px; font-weight: 900; font-size: 1.2rem; color: var(--text);">🗺️ LOADING ARENA...</div>
+                <div id="playAction" class="hidden">
+                    <button class="btn-play" onclick="startGame()">
+                        ▶️ PLAY ONLINE NOW
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Fullscreen Button -->
+            <button class="btn-fullscreen" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Controls / Server Select -->
+        <div class="controls">
+            <div class="game-info-tag">🎮 ID: <span id="activeGameTitle">...</span></div>
+            <div class="server-box">
+                <span class="server-alert">Lagging? Switch Server &rarr;</span>
+                <select id="serverSelect" class="server-select" aria-label="Select Game Server" onchange="changeServer(this.value)"></select>
+            </div>
+        </div>
+
+        <!-- SEO Content for Context -->
+        <article class="seo-content">
+            <h2>🕹️ Experience Paper.io Unblocked Online</h2>
+            <p>Welcome to the ultimate arena for <strong>paper.io unblocked</strong>! If you are looking to conquer territory and outsmart opponents at school, work, or home, you've found the perfect spot. Play <strong>paper.io unblocked</strong> online directly in your browser without any restrictions.</p>
+            <br>
+            <p>Expand your colorful domain, bite into other players' blocks, and become the undisputed king of the map. With our optimized web player, you can enjoy seamless, fast-paced multiplayer gameplay. Jump into the action, draw your lines, and experience the best <strong>paper io</strong> gameplay today!</p>
+        </article>
+    </main>
+
+    <footer>
+        &copy; 2026 Paper.io Unblocked • Conquer The Map
+    </footer>
+</div>
+
+<script>
+    // Configuration
+    const JSON_URL = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const KEY = "paperio"; // Target key for paper.io URLs
+
+    let gameUrls = [];
+    let currentUrl = "";
+
+    async function init() {
+        try {
+            const res = await fetch(`${JSON_URL}?t=${Date.now()}`);
+            const data = await res.json();
+            
+            // Check for paperio key, else use a fallback suitable for paper.io
+            gameUrls = data[KEY] || [
+                "https://paperio717.github.io/ppr-2.html", // Target URL as primary fallback
+                "https://html5.gamedistribution.com/f964092b3a864ed7b83c27eb2aefd7fc/"
+            ]; 
+            
+            if(gameUrls.length > 0) {
+                document.getElementById('activeGameTitle').innerText = "PAPER_IO_WEB";
+                renderServerList();
+                showPlayButton();
+            }
+        } catch (e) { 
+            // Network error fallback
+            gameUrls = ["https://paperio717.github.io/ppr-2.html"];
+            document.getElementById('activeGameTitle').innerText = "PAPER_IO_WEB";
+            renderServerList();
+            showPlayButton();
+            console.log("Using fallback URLs due to fetch error.");
+        }
+    }
+
+    function renderServerList() {
+        const select = document.getElementById('serverSelect');
+        select.innerHTML = gameUrls.map((url, i) => `<option value="${url}">🟦 ARENA SERVER 0${i + 1}</option>`).join('');
+        currentUrl = gameUrls[0];
+    }
+
+    function showPlayButton() {
+        document.getElementById('status').classList.add('hidden');
+        document.getElementById('playAction').classList.remove('hidden');
+    }
+
+    function changeServer(val) {
+        currentUrl = val;
+        // If the game has already started (overlay hidden), restart it on new server
+        if(document.getElementById('overlay').classList.contains('hidden')) {
+            startGame();
+        }
+    }
+
+    function startGame() {
+        const frame = document.getElementById('gameFrame');
+        const overlay = document.getElementById('overlay');
+        
+        frame.src = currentUrl;
+        overlay.innerHTML = `<div style="color:var(--text); font-weight: 900; font-size: 1.4rem;">🚀 ENTERING ARENA...</div>`;
+        
+        // Hide overlay once the iframe loads
+        frame.onload = () => overlay.classList.add('hidden');
+    }
+
+    function toggleFullscreen() {
+        const wrapper = document.getElementById('gameWrapper');
+        if (!document.fullscreenElement) {
+            if (wrapper.requestFullscreen) {
+                wrapper.requestFullscreen();
+            } else if (wrapper.webkitRequestFullscreen) { /* Safari */
+                wrapper.webkitRequestFullscreen();
+            } else if (wrapper.msRequestFullscreen) { /* IE11 */
+                wrapper.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+    // Start initialization on window load
+    window.onload = init;
+</script>
+</body>
+</html>
