@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paper.io 1 ☁️ Original Classic Game</title>
+    <meta name="description" content="Experience the classic Paper.io 1 online! Enjoy a soft, sky-blue interface while you draw and capture territory in this iconic multiplayer io game.">
+    <meta name="keywords" content="paper.io 1, paper io original, play paper io 1, classic paper io, territory capture game">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Paper.io 1 💧 Original Classic">
+    <meta property="og:description" content="Play the original Paper.io 1 game. Claim your space in the clouds!">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-7">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Paper.io 1",
+      "genre": ["Action", "Classic", "IO"],
+      "url": "https://paperio717.github.io/ppr-7",
+      "description": "The first installment of the famous paper.io series where players draw blocks to capture the arena.",
+      "applicationCategory": "BrowserGame"
+    }
+    </script>
+
+    <style>
+        :root {
+            --sky-light: #f0f9ff;
+            --sky-main: #38bdf8;
+            --sky-dark: #0284c7;
+            --text-color: #0c4a6e;
+            --white-cloud: #ffffff;
+        }
+
+        body {
+            background-color: var(--sky-light);
+            background-image: linear-gradient(180deg, #e0f2fe 0%, var(--sky-light) 100%);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 2vw;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 30px;
+            border: 2px solid #bae6fd;
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.1);
+        }
+
+        .header-cloud {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--sky-dark);
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .viewport {
+            background: var(--white-cloud);
+            border-radius: 20px;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+            border: 6px solid var(--white-cloud);
+        }
+
+        .viewport:fullscreen { border: none; border-radius: 0; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .loading-cloud {
+            position: absolute;
+            inset: 0;
+            background: rgba(240, 249, 255, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .btn-sky {
+            background: var(--sky-main);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(56, 189, 248, 0.4);
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-sky:hover { background: var(--sky-dark); transform: scale(1.05); }
+        .btn-sky:active { transform: scale(0.95); }
+
+        .control-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding: 0 10px;
+        }
+
+        .status-pill {
+            background: var(--white-cloud);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--sky-main);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .select-sky {
+            background: var(--white-cloud);
+            color: var(--sky-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            outline: none;
+        }
+
+        .seo-box {
+            margin-top: 35px;
+            background: var(--white-cloud);
+            padding: 30px;
+            border-radius: 25px;
+            line-height: 1.8;
+            color: #334155;
+        }
+
+        .seo-box h2 { color: var(--sky-dark); margin-top: 0; }
+        .hidden { display: none !important; }
+
+        .btn-fs-cloud {
+            position: absolute; bottom: 15px; right: 15px;
+            background: var(--white-cloud); color: var(--sky-main);
+            border: none; width: 45px; height: 45px;
+            border-radius: 12px; cursor: pointer; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn-fs-cloud svg { width: 22px; height: 22px; fill: currentColor; }
+
+        @media (max-width: 600px) {
+            .control-strip { flex-direction: column; gap: 15px; }
+            h1 { font-size: 2rem; }
+            .container { padding: 15px; border-radius: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-cloud">
+        <h1>☁️ Paper.io 1 ☁️</h1>
+        <p style="color: var(--sky-main); font-weight: bold;">The Original Classic Experience 💧</p>
+    </div>
+
+    <div class="viewport" id="gameArea">
+        <iframe id="gameIframe" src="about:blank" title="Paper.io 1 Game"></iframe>
+        
+        <div id="cloudScreen" class="loading-cloud">
+            <div id="loadingText" style="color:var(--sky-dark); font-weight:bold; font-size: 1.1rem; margin-bottom: 20px;">🌤️ Clearing the skies...</div>
+            <button id="btnLaunch" class="btn-sky hidden" onclick="launchOriginal()">PLAY PAPER.IO 1</button>
+        </div>
+        
+        <button class="btn-fs-cloud" onclick="toggleFull()" title="Fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+    </div>
+
+    <div class="control-strip">
+        <div class="status-pill">📡 SYS_ID: <span id="sysIndicator">Checking...</span></div>
+        <select id="serverPicker" class="select-sky" onchange="switchSource(this.value)"></select>
+    </div>
+
+    <div class="seo-box">
+        <h2>Experience the Original Paper.io 1 💧</h2>
+        <p>Step back into the classic arena with <strong>paper.io 1</strong>! Before all the crazy updates and spin-offs, there was the pure, unadulterated joy of the original game. Capture blocks, build your square empire, and dominate the server.</p>
+        <p>Playing <strong>paper.io 1</strong> is simple to learn but hard to master. Move your block around to draw a perimeter and return to your colored zone to capture the space. Don't let your enemies touch your tail, or it's game over! Enjoy this nostalgic trip to the clouds.</p>
+    </div>
+</div>
+
+<script>
+    const DATA_API = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const GAME_ID = "paperio"; 
+    let gameSources = [];
+    let currentSource = "";
+
+    async function loadData() {
+        try {
+            const req = await fetch(`${DATA_API}?_cb=${Date.now()}`);
+            const data = await req.json();
+            
+            gameSources = data[GAME_ID] || ["https://paperio717.github.io/ppr-7"]; 
+            
+            if(gameSources.length > 0) {
+                document.getElementById('sysIndicator').innerText = "V1_READY";
+                buildOptions();
+                showLaunch();
+            }
+        } catch (err) { 
+            gameSources = ["https://paperio717.github.io/ppr-7"];
+            document.getElementById('sysIndicator').innerText = "V1_OFFLINE";
+            buildOptions();
+            showLaunch();
+        }
+    }
+
+    function buildOptions() {
+        const picker = document.getElementById('serverPicker');
+        picker.innerHTML = gameSources.map((u, i) => `<option value="${u}">Cloud Node ${i + 1}</option>`).join('');
+        currentSource = gameSources[0];
+    }
+
+    function showLaunch() {
+        document.getElementById('loadingText').classList.add('hidden');
+        document.getElementById('btnLaunch').classList.remove('hidden');
+    }
+
+    function switchSource(val) {
+        currentSource = val;
+        if(document.getElementById('cloudScreen').classList.contains('hidden')) {
+            launchOriginal();
+        }
+    }
+
+    function launchOriginal() {
+        const frame = document.getElementById('gameIframe');
+        const screen = document.getElementById('cloudScreen');
+        
+        frame.src = currentSource;
+        screen.innerHTML = `<div style="color:var(--sky-dark); font-weight:bold;">🌧️ Dropping in...</div>`;
+        
+        frame.onload = () => screen.classList.add('hidden');
+    }
+
+    function toggleFull() {
+        const area = document.getElementById('gameArea');
+        if (!document.fullscreenElement) {
+            area.requestFullscreen?.() || area.webkitRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        }
+    }
+
+    window.onload = loadData;
+</script>
+</body>
+</html>

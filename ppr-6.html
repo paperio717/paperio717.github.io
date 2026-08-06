@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paper.io Games Unblocked 🍊 Play Free Online</title>
+    <meta name="description" content="Play paper.io games unblocked online for free! Enjoy cute, colorful graphics as you draw your territory and conquer the map without any restrictions.">
+    <meta name="keywords" content="paper.io games unblocked, play paper io unblocked, cute paper io, unblocked games, draw territory game">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Paper.io Games Unblocked 🧡">
+    <meta property="og:description" content="Jump into the fun! Play paper.io games unblocked right now.">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-6">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Paper.io Games Unblocked",
+      "genre": ["Action", "Multiplayer", "Casual"],
+      "url": "https://paperio717.github.io/ppr-6",
+      "description": "A fun and cute multiplayer game where players draw lines to capture territory.",
+      "applicationCategory": "BrowserGame"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #fff7ed; /* Very light orange */
+            --accent-main: #f97316; /* Bright orange */
+            --accent-light: #fdba74;
+            --text-dark: #431407; /* Dark brown for text */
+            --card-bg: #ffffff;
+            --border-radius: 24px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(var(--accent-light) 2px, transparent 2px);
+            background-size: 30px 30px;
+            color: var(--text-dark);
+            font-family: 'Quicksand', 'Nunito', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-board {
+            width: 100%;
+            max-width: 900px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
+            border: 4px dashed var(--accent-light);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--accent-main);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .player-frame {
+            background: #ffe4e6;
+            border-radius: 16px;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid var(--accent-main);
+        }
+
+        .player-frame:fullscreen { border: none; border-radius: 0; }
+        
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .splash-screen {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .btn-cute {
+            background: var(--accent-main);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #c2410c;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .btn-cute:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 #c2410c;
+        }
+
+        .options-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            background: var(--bg-color);
+            padding: 15px 20px;
+            border-radius: 16px;
+            border: 2px solid var(--accent-light);
+        }
+
+        .select-cute {
+            background: white;
+            color: var(--text-dark);
+            border: 2px solid var(--accent-main);
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .info-card {
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            line-height: 1.7;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-card h2 { color: var(--accent-main); margin-top: 0; }
+        .hidden { display: none !important; }
+
+        .btn-fs {
+            position: absolute; bottom: 10px; right: 10px;
+            background: var(--accent-main); color: white;
+            border: none; width: 40px; height: 40px;
+            border-radius: 50%; cursor: pointer; z-index: 10;
+        }
+        .btn-fs svg { width: 20px; height: 20px; fill: currentColor; }
+
+        @media (max-width: 600px) {
+            .options-bar { flex-direction: column; gap: 15px; }
+            h1 { font-size: 1.8rem; }
+            .game-board { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-board">
+    <header>
+        <h1>🦊 Paper.io Games Unblocked 🦊</h1>
+        <p style="margin: 5px 0 0 0; font-weight: bold; color: var(--accent-light);">Draw, Capture, and Smile!</p>
+    </header>
+
+    <main>
+        <div class="player-frame" id="frameBox">
+            <iframe id="gameIframe" src="about:blank" title="Paper.io Gameplay"></iframe>
+            
+            <div id="splash" class="splash-screen">
+                <div id="loader" style="color:var(--accent-main); font-weight:bold; font-size: 1.2rem; margin-bottom:15px;">🥕 Preparing Arena...</div>
+                <button id="btnPlay" class="btn-cute hidden" onclick="startApp()">PLAY NOW 🐾</button>
+            </div>
+            
+            <button class="btn-fs" onclick="toggleFs()" title="Fullscreen">
+                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+        </div>
+
+        <div class="options-bar">
+            <div><strong>Status:</strong> <span id="connTag" style="color: var(--accent-main);">Waiting...</span> 🍊</div>
+            <select id="serverDrop" class="select-cute" onchange="pickServer(this.value)"></select>
+        </div>
+
+        <div class="info-card">
+            <h2>Welcome to Paper.io Games Unblocked 🧡</h2>
+            <p>Dive into the vibrant world of <strong>paper.io games unblocked</strong>! If you love casual multiplayer experiences, this is the perfect spot to draw your path and expand your cute colored block.</p>
+            <p>In <strong>paper.io games unblocked</strong>, the rules are delightfully simple: leave your base to draw a line, and connect it back to claim the space inside. Just watch out for other players—if they cross your line before you make it back, you'll have to start over! Have fun and create the biggest territory on the board.</p>
+        </div>
+    </main>
+</div>
+
+<script>
+    const CONFIG_URL = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const TARGET_KEY = "paperio"; 
+    let urls = [];
+    let activeUrl = "";
+
+    async function initSys() {
+        try {
+            const response = await fetch(`${CONFIG_URL}?t=${Date.now()}`);
+            const data = await response.json();
+            
+            urls = data[TARGET_KEY] || ["https://paperio717.github.io/ppr-6"]; 
+            
+            if(urls.length > 0) {
+                document.getElementById('connTag').innerText = "ONLINE";
+                setupDropdown();
+                enableStart();
+            }
+        } catch (error) { 
+            urls = ["https://paperio717.github.io/ppr-6"];
+            document.getElementById('connTag').innerText = "LOCAL_MODE";
+            setupDropdown();
+            enableStart();
+        }
+    }
+
+    function setupDropdown() {
+        const drop = document.getElementById('serverDrop');
+        drop.innerHTML = urls.map((u, i) => `<option value="${u}">Orange Server 0${i + 1}</option>`).join('');
+        activeUrl = urls[0];
+    }
+
+    function enableStart() {
+        document.getElementById('loader').classList.add('hidden');
+        document.getElementById('btnPlay').classList.remove('hidden');
+    }
+
+    function pickServer(val) {
+        activeUrl = val;
+        if(document.getElementById('splash').classList.contains('hidden')) {
+            startApp();
+        }
+    }
+
+    function startApp() {
+        const frame = document.getElementById('gameIframe');
+        const splash = document.getElementById('splash');
+        
+        frame.src = activeUrl;
+        splash.innerHTML = `<div style="color:var(--accent-main); font-weight:bold;">🎨 Drawing map...</div>`;
+        
+        frame.onload = () => splash.classList.add('hidden');
+    }
+
+    function toggleFs() {
+        const box = document.getElementById('frameBox');
+        if (!document.fullscreenElement) {
+            box.requestFullscreen?.() || box.webkitRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        }
+    }
+
+    window.onload = initSys;
+</script>
+</body>
+</html>
