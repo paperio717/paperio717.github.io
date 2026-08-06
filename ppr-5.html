@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Game Paper.io 🕹️ Conquer the Neon Grid</title>
+    <meta name="description" content="Play game paper.io online now! Draw your neon territory, outsmart opponents, and dominate the arena in this thrilling multiplayer experience.">
+    <meta name="keywords" content="game paper.io, paper.io game, play paper io online, paper io online game, multiplayer io games, draw territory game">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Game Paper.io 🟦 Expand Your Territory">
+    <meta property="og:description" content="Jump into the neon grid and claim your space in game paper.io. The ultimate competitive multiplayer game.">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-3">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Game Paper.io",
+      "genre": ["Action", "Multiplayer", "IO"],
+      "url": "https://paperio717.github.io/ppr-3",
+      "description": "A strategic multiplayer game where players draw lines to capture territory while avoiding opponents.",
+      "applicationCategory": "BrowserGame"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --accent-color: #38bdf8; /* Light Blue */
+            --accent-glow: 0 0 10px rgba(56, 189, 248, 0.5);
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace; /* Retro vibe */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-shadow: var(--accent-glow);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .screen-container {
+            background: #000;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            box-shadow: var(--accent-glow);
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .screen-container:fullscreen {
+            border: none;
+            border-radius: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .start-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .btn-neon {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.2), 0 0 15px rgba(56, 189, 248, 0.4);
+            transition: all 0.2s;
+        }
+
+        .btn-neon:hover {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        select {
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .info-section {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            line-height: 1.7;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .fs-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fs-btn svg { width: 20px; height: 20px; fill: currentColor; }
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .panel { flex-direction: column; gap: 15px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h1>[ GAME PAPER.IO ]</h1>
+        <div class="subtitle">▶ INITIALIZING NEON ARENA ◀</div>
+    </header>
+
+    <main>
+        <div class="screen-container" id="playerContainer">
+            <iframe id="gameIframe" src="about:blank" title="Game Paper.io Grid"></iframe>
+            
+            <div id="startScreen" class="start-overlay">
+                <div id="loadingText" style="color:var(--accent-color); font-size:1.2rem; letter-spacing:1px;">CONNECTING TO SERVER...</div>
+                <button id="playBtn" class="btn-neon hidden" onclick="launchGame()">INITIALIZE GAME</button>
+            </div>
+            
+            <button class="fs-btn" onclick="toggleFullscreen()" title="Fullscreen">
+                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+        </div>
+
+        <div class="panel">
+            <div class="status-indicator">
+                <div class="pulse-dot"></div>
+                SYSTEM: ONLINE | ID: <span id="gameIdDisplay">STANDBY</span>
+            </div>
+            <div>
+                <label for="nodeSelect" style="color:#94a3b8; font-size:0.9rem; margin-right:10px;">NODE:</label>
+                <select id="nodeSelect" onchange="switchNode(this.value)"></select>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>About Game Paper.io 🗺️</h2>
+            <p>Welcome to the neon grid of <strong>game paper.io</strong>. Your objective is simple: capture as much territory as possible. Draw closed lines to add sectors to your domain, but beware—if an enemy slices your line before it's closed, your game is over.</p>
+            <p>Mastering <strong>game paper.io</strong> requires strategic planning and quick reflexes. Play defensively to protect your borders, or aggressively to steal space from rivals. Dive in and dominate the leaderboards!</p>
+        </div>
+    </main>
+</div>
+
+<script>
+    const CONFIG_URL = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const TARGET_KEY = "paperio"; 
+    let activeUrls = [];
+    let selectedUrl = "";
+
+    async function setupSystem() {
+        try {
+            const response = await fetch(`${CONFIG_URL}?nocache=${Date.now()}`);
+            const data = await response.json();
+            
+            activeUrls = data[TARGET_KEY] || [
+                "https://paperio717.github.io/ppr-3"
+            ]; 
+            
+            if(activeUrls.length > 0) {
+                document.getElementById('gameIdDisplay').innerText = "PAPER_V3_ACTIVE";
+                populateNodes();
+                enablePlay();
+            }
+        } catch (error) { 
+            activeUrls = ["https://paperio717.github.io/ppr-3"];
+            document.getElementById('gameIdDisplay').innerText = "LOCAL_FALLBACK";
+            populateNodes();
+            enablePlay();
+        }
+    }
+
+    function populateNodes() {
+        const selector = document.getElementById('nodeSelect');
+        selector.innerHTML = activeUrls.map((u, i) => `<option value="${u}">Grid Sector 0${i + 1}</option>`).join('');
+        selectedUrl = activeUrls[0];
+    }
+
+    function enablePlay() {
+        document.getElementById('loadingText').classList.add('hidden');
+        document.getElementById('playBtn').classList.remove('hidden');
+    }
+
+    function switchNode(newUrl) {
+        selectedUrl = newUrl;
+        if(document.getElementById('startScreen').classList.contains('hidden')) {
+            launchGame();
+        }
+    }
+
+    function launchGame() {
+        const frame = document.getElementById('gameIframe');
+        const overlay = document.getElementById('startScreen');
+        
+        frame.src = selectedUrl;
+        overlay.innerHTML = `<div style="color:var(--accent-color); font-weight:bold;">RENDERING GRID...</div>`;
+        
+        frame.onload = () => overlay.classList.add('hidden');
+    }
+
+    function toggleFullscreen() {
+        const container = document.getElementById('playerContainer');
+        if (!document.fullscreenElement) {
+            container.requestFullscreen?.() || container.webkitRequestFullscreen?.() || container.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() || document.webkitExitFullscreen?.() || document.msExitFullscreen?.();
+        }
+    }
+
+    window.onload = setupSystem;
+</script>
+</body>
+</html>

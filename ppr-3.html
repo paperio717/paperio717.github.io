@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paper IO 🟩 Expand Your Block</title>
+    <meta name="description" content="Play Paper IO and challenge players worldwide. Expand your territory, trap your enemies, and become the biggest block on the server!">
+    <meta name="keywords" content="paper io, paper.io, play paper io, io games, block territory game, multiplayer io">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Paper IO 📦 Play Now">
+    <meta property="og:description" content="Draw boxes, capture land, and survive in Paper IO.">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-5">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --bg-top: #fdf2f8; /* Pinkish tint */
+            --bg-bottom: #e0e7ff; /* Bluish tint */
+            --primary: #ec4899; /* Pink */
+            --card: rgba(255, 255, 255, 0.8);
+            --text-color: #334155;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+            color: var(--text-color);
+            padding: 3vw;
+            box-sizing: border-box;
+        }
+
+        .main-col {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+            border: 4px solid #fff;
+        }
+
+        .header-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin: 0;
+            text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(236, 72, 153, 0.2);
+            transform: rotate(-1deg);
+        }
+
+        .game-frame-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px dashed var(--primary);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .game-frame-wrapper:fullscreen {
+            border: none;
+            border-radius: 0;
+            padding-top: 0;
+            height: 100vh;
+        }
+
+        #theIframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .curtain {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .btn-bubbly {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-family: inherit;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #be185d, 0 15px 20px rgba(236, 72, 153, 0.4);
+            transition: all 0.1s;
+        }
+
+        .btn-bubbly:active {
+            transform: translateY(8px);
+            box-shadow: 0 0px 0 #be185d, 0 5px 10px rgba(236, 72, 153, 0.4);
+        }
+
+        .tools-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .pill-select {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            background: #fdf2f8;
+            color: var(--primary);
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .text-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 20px;
+            line-height: 1.6;
+        }
+
+        .text-box h2 {
+            color: #8b5cf6; /* Purple */
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .fs-circ {
+            background: #fff;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .fs-circ svg { width: 20px; height: 20px; fill: currentColor; }
+        .hide { display: none !important; }
+
+        @media (max-width: 600px) {
+            .main-col { padding: 15px; border-radius: 15px; border-width: 2px; }
+            h1 { font-size: 2.2rem; }
+            .tools-row { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-col">
+    <div class="header-box">
+        <h1>✨ Paper IO ✨</h1>
+        <p style="font-weight:bold; color:#8b5cf6;">Draw. Expand. Conquer! 🟥🟩🟦</p>
+    </div>
+
+    <div class="game-frame-wrapper" id="gContainer">
+        <iframe id="theIframe" src="about:blank" title="Paper IO Game"></iframe>
+        
+        <div id="theCurtain" class="curtain">
+            <h3 id="loadMsg" style="color:var(--primary);">Warming up the colors... 🎨</h3>
+            <button id="goBtn" class="btn-bubbly hide" onclick="hitPlay()">LET'S GO!</button>
+        </div>
+
+        <button class="fs-circ" onclick="goBig()" title="Fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+    </div>
+
+    <div class="tools-row">
+        <div style="font-weight:bold; color:#94a3b8;">Status: <span id="sysId" style="color:var(--primary);">Checking...</span></div>
+        <select id="linkSelect" class="pill-select" onchange="swapLink(this.value)"></select>
+    </div>
+
+    <div class="text-box">
+        <h2>What is Paper IO? 🤔</h2>
+        <p><strong>Paper io</strong> is the incredibly addictive multiplayer game where you are a colored block trying to take over the map! Start small and draw lines to expand your territory. The bigger your space, the higher your score.</p>
+        <p>But watch out! In <strong>paper io</strong>, if another player crosses your line while you are drawing outside your safe zone, you pop! Outsmart your opponents, trap them, and become the undisputed ruler of the board.</p>
+    </div>
+</div>
+
+<script>
+    const API_URL = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const JSON_KEY = "paperio"; 
+    let links = [];
+    let curLink = "";
+
+    async function boot() {
+        try {
+            const res = await fetch(`${API_URL}?r=${Math.random()}`);
+            const data = await res.json();
+            
+            links = data[JSON_KEY] || ["https://paperio717.github.io/ppr-5"]; 
+            
+            if(links.length > 0) {
+                document.getElementById('sysId').innerText = "READY_TO_COLOR";
+                fillSelect();
+                showGo();
+            }
+        } catch (e) { 
+            links = ["https://paperio717.github.io/ppr-5"];
+            document.getElementById('sysId').innerText = "OFFLINE_MODE";
+            fillSelect();
+            showGo();
+        }
+    }
+
+    function fillSelect() {
+        const sel = document.getElementById('linkSelect');
+        sel.innerHTML = links.map((l, i) => `<option value="${l}">Color Server ${i + 1}</option>`).join('');
+        curLink = links[0];
+    }
+
+    function showGo() {
+        document.getElementById('loadMsg').classList.add('hide');
+        document.getElementById('goBtn').classList.remove('hide');
+    }
+
+    function swapLink(val) {
+        curLink = val;
+        if(document.getElementById('theCurtain').classList.contains('hide')) {
+            hitPlay();
+        }
+    }
+
+    function hitPlay() {
+        const frame = document.getElementById('theIframe');
+        const curtain = document.getElementById('theCurtain');
+        
+        frame.src = curLink;
+        curtain.innerHTML = `<h3 style="color:var(--primary);">Dropping you in... 🪂</h3>`;
+        
+        frame.onload = () => curtain.classList.add('hide');
+    }
+
+    function goBig() {
+        const wrap = document.getElementById('gContainer');
+        if (!document.fullscreenElement) {
+            wrap.requestFullscreen?.() || wrap.webkitRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        }
+    }
+
+    window.onload = boot;
+</script>
+</body>
+</html>

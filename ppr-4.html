@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paper IO Unblocked ⚪ Play Free Anywhere</title>
+    <meta name="description" content="Access Paper IO Unblocked easily. Enjoy smooth, restriction-free gameplay where you draw blocks to claim the largest area on the map.">
+    <meta name="keywords" content="paper io unblocked, unblocked paper io, paper io game unblocked, play paper io free, school unblocked games">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Paper IO Unblocked 🎨">
+    <meta property="og:description" content="Unrestricted access to Paper IO. Claim your space now!">
+    <meta property="og:url" content="https://paperio717.github.io/ppr-4">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --bg: #f9fafb;
+            --surface: #ffffff;
+            --text: #374151;
+            --brand: #6366f1; /* Indigo */
+            --brand-hover: #4f46e5;
+            --border: #e5e7eb;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .title-area h1 {
+            font-size: 1.8rem;
+            color: #111827;
+            margin: 0 0 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .player-box {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .canvas-area {
+            aspect-ratio: 16/9;
+            background: #e5e7eb;
+            position: relative;
+        }
+
+        .canvas-area:fullscreen {
+            border-radius: 0;
+        }
+
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+
+        .play-cover {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .primary-btn {
+            background: var(--brand);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+        }
+
+        .primary-btn:hover { background: var(--brand-hover); }
+
+        .toolbar {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .dropdown {
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.9rem;
+            appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23374151%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px top 50%;
+            background-size: 10px auto;
+        }
+
+        .fs-icon {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6b7280;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        .fs-icon:hover { background: #f3f4f6; color: #111827; }
+        .fs-icon svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .article-content {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .article-content h2 { font-size: 1.3rem; color: #111827; margin-top: 0; }
+        
+        .loader { color: #6b7280; font-size: 0.9rem; }
+        .hidden { display: none !important; }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .toolbar { flex-direction: column; gap: 15px; }
+            .dropdown { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="title-area">
+            <h1>Paper IO Unblocked 🖍️</h1>
+            <span class="badge">Unrestricted Play</span>
+        </div>
+        <div style="font-size:0.85rem; color:#6b7280;">ID: <span id="sessionTag">Wait...</span></div>
+    </header>
+
+    <main>
+        <div class="player-box">
+            <div class="canvas-area" id="gameArea">
+                <iframe id="gameView" src="about:blank" title="Paper IO Unblocked View"></iframe>
+                
+                <div id="coverPanel" class="play-cover">
+                    <div id="loadStatus" class="loader">Fetching game data...</div>
+                    <button id="startBtn" class="primary-btn hidden" onclick="beginSession()">START PLAYING</button>
+                </div>
+            </div>
+            
+            <div class="toolbar">
+                <select id="sourceSelect" class="dropdown" onchange="changeSource(this.value)"></select>
+                
+                <button class="fs-icon" onclick="makeFullscreen()" title="Fullscreen">
+                    <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <article class="article-content">
+            <h2>About Paper IO Unblocked 🌐</h2>
+            <p>Enjoy uninterrupted gameplay with <strong>paper io unblocked</strong>. Whether you are taking a break or looking to kill some time, this unblocked version ensures you can access your favorite territory-capturing game without any network restrictions blocking your path.</p>
+            <p>The goal in <strong>paper io unblocked</strong> remains the same: expand your color block by moving out of your safe zone and returning to close the loop. Be careful not to let anyone hit your trail! Play seamlessly in your browser right now.</p>
+        </article>
+    </main>
+</div>
+
+<script>
+    const DB_URL = "https://subwaysurfersunblocked.bitbucket.io/game.json"; 
+    const DB_KEY = "paperio"; 
+    let sourceList = [];
+    let currentSource = "";
+
+    async function initApp() {
+        try {
+            const req = await fetch(`${DB_URL}?ts=${Date.now()}`);
+            const data = await req.json();
+            
+            sourceList = data[DB_KEY] || ["https://paperio717.github.io/ppr-4"]; 
+            
+            if(sourceList.length > 0) {
+                document.getElementById('sessionTag').innerText = "V2_UNBLOCKED";
+                buildDropdown();
+                readyToPlay();
+            }
+        } catch (e) { 
+            sourceList = ["https://paperio717.github.io/ppr-4"];
+            document.getElementById('sessionTag').innerText = "V2_OFFLINE";
+            buildDropdown();
+            readyToPlay();
+        }
+    }
+
+    function buildDropdown() {
+        const drop = document.getElementById('sourceSelect');
+        drop.innerHTML = sourceList.map((url, i) => `<option value="${url}">Source Route 0${i + 1}</option>`).join('');
+        currentSource = sourceList[0];
+    }
+
+    function readyToPlay() {
+        document.getElementById('loadStatus').classList.add('hidden');
+        document.getElementById('startBtn').classList.remove('hidden');
+    }
+
+    function changeSource(val) {
+        currentSource = val;
+        if(document.getElementById('coverPanel').classList.contains('hidden')) {
+            beginSession();
+        }
+    }
+
+    function beginSession() {
+        const frame = document.getElementById('gameView');
+        const cover = document.getElementById('coverPanel');
+        
+        frame.src = currentSource;
+        cover.innerHTML = `<div class="loader">Loading assets...</div>`;
+        
+        frame.onload = () => cover.classList.add('hidden');
+    }
+
+    function makeFullscreen() {
+        const area = document.getElementById('gameArea');
+        if (!document.fullscreenElement) {
+            area.requestFullscreen?.() || area.webkitRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() || document.webkitExitFullscreen?.();
+        }
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
